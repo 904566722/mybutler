@@ -1,11 +1,19 @@
 package configs
 
-import "github.com/spf13/viper"
+import (
+	"github.com/spf13/viper"
+)
 
 var glbConfig *GlobalConfig
 
 type GlobalConfig struct {
+	App   App   `yaml:"app"`
 	Mysql Mysql `yaml:"mysql"`
+	Log   Log   `yaml:"log"`
+}
+
+type App struct {
+	Name string `yaml:"name"`
 }
 
 type Mysql struct {
@@ -14,6 +22,15 @@ type Mysql struct {
 	User   string `yaml:"user"`
 	Passwd string `yaml:"passwd"`
 	DBName string `yaml:"DBName"`
+}
+
+type Log struct {
+	Level       string `yaml:"level"`
+	Env         string `yaml:"env"`
+	MaxAge      int    `yaml:"maxAge"`
+	MaxBackup   int    `yaml:"maxBackup"`
+	MaxFileSize int    `yaml:"maxFileSize"`
+	LogFileDir  string `yaml:"logFileDir"`
 }
 
 func InitConfig() error {
@@ -31,6 +48,6 @@ func InitConfig() error {
 	return nil
 }
 
-func GetGlbConfig() *GlobalConfig {
+func Default() *GlobalConfig {
 	return glbConfig
 }

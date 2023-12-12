@@ -1,6 +1,15 @@
+app:
+  name: "mybutler"
 mysql:
   host: "127.0.0.1"
   port: 3306
   user: "root"
   passwd: "APTX4869"
   DBName: "mybutler"
+log:
+  level: "debug"
+  env: "dev" # "dev" | "prod"
+  maxAge: 30 # days
+  maxBackup: 5 # files
+  maxFileSize: 30 # MB
+  logFileDir: "./logs"

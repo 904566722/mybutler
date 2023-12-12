@@ -2,13 +2,13 @@ package main
 
 import (
 	"embed"
-	"fmt"
 
 	"github.com/wailsapp/wails/v2"
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 
 	"changeme/backend/pkg/configs"
+	"changeme/backend/pkg/log"
 )
 
 //go:embed all:frontend/dist
@@ -21,7 +21,9 @@ func main() {
 	if err := configs.InitConfig(); err != nil {
 		panic(err)
 	}
-	fmt.Println(configs.GetGlbConfig())
+	log.InitLog()
+	log.Debug("init log success")
+	log.Info("global config", log.Any("config", configs.Default()))
 
 	// Create application with options
 	err := wails.Run(&options.App{
