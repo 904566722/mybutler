@@ -1,0 +1,15 @@
+{"L":"DEBUG","T":"2023-12-12 19:20:38","C":"log/logger.go:329","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 13:25:11","C":"log/logger.go:329","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 13:31:57","C":"log/logger.go:329","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 13:36:30","C":"log/logger.go:329","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 13:42:59","C":"log/logger.go:330","M":"init log success"}
+{"level":"debug","ts":1702446225541,"caller":"log/logger.go:330","msg":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 13:43:53","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:00:19","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:04:46","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:06:08","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:06:57","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:07:26","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:08:51","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:10:30","C":"log/logger.go:330","M":"init log success"}
+{"L":"DEBUG","T":"2023-12-13 14:13:51","C":"log/logger.go:330","M":"init log success"}
