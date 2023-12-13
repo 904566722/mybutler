@@ -175,6 +175,7 @@ func NewLogger(modOpts ...ModOptions) *Logger {
 		if len(l.Opts.ErrorOutputPaths) == 0 {
 			l.zapConf.ErrorOutputPaths = []string{"stderr"}
 		}
+		l.zapConf.EncoderConfig.EncodeCaller = zapcore.ShortCallerEncoder
 		l.zapConf.Level.SetLevel(l.Opts.Level)
 		l.init()
 	})

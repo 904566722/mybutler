@@ -8,6 +8,7 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options/assetserver"
 
 	"changeme/backend/pkg/configs"
+	"changeme/backend/pkg/db"
 	"changeme/backend/pkg/log"
 )
 
@@ -24,6 +25,7 @@ func main() {
 	log.InitLog()
 	log.Debug("init log success")
 	log.Info("global config", log.Any("config", configs.Default()))
+	db.InitMysql()
 
 	// Create application with options
 	err := wails.Run(&options.App{

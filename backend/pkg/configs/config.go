@@ -1,6 +1,8 @@
 package configs
 
 import (
+	"fmt"
+
 	"github.com/spf13/viper"
 )
 
@@ -33,13 +35,41 @@ type Log struct {
 	LogFileDir  string `yaml:"logFileDir"`
 }
 
+var dftConfig = GlobalConfig{
+	App: App{
+		Name: "mybutler",
+	},
+	Mysql: Mysql{
+		Host:   "127.0.0.1",
+		Port:   3306,
+		User:   "root",
+		Passwd: "1ASDinnocent",
+		DBName: "mybutler",
+	},
+	Log: Log{
+		Level:       "debug",
+		Env:         "dev",
+		MaxAge:      10,
+		MaxBackup:   10,
+		MaxFileSize: 128,
+		LogFileDir:  "./logs",
+	},
+}
+
 func InitConfig() error {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("./backend/pkg/configs")
 	if err := viper.ReadInConfig(); err != nil {
-		return err
+		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+			fmt.Printf("=== warning: config file not found === %v\n", err)
+			// use default config
+			glbConfig = &dftConfig
+			return nil
+		} else {
+			return err
+		}
 	}
 	glbConfig = &GlobalConfig{}
 	if err := viper.Unmarshal(glbConfig); err != nil {
